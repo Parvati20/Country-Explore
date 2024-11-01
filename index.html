@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Country Explore</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-title">Country Explore</div>
+        <div class="header-controls">
+            <select id="languageFilter">
+                <option value="">Select Language</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+            </select>
+            <select id="regionFilter">
+                <option value="">Select Region</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+            </select>
+            <button id="toggleFavorite"><i class="fa-solid fa-heart"></i></button>
+            <button id="toggleMode"><i class="fa-solid fa-sun"></i></button>
+            <button id="toggleModeMoon" style="display:none;"><i class="fa-solid fa-moon"></i></button> <!-- Added moon icon -->
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search countries...">
+        <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <main id="countryContainer" class="country-container">
+    </main>
+
+    <button id="showMoreButton" class="show-more">Show More</button>
+
+    <div id="favoritesSection" style="display:none;">
+        <h2>Favorite Countries</h2>
+        <div id="favoritesContainer" class="country-container"></div>
+    </div>
+
+    <script src="app.js"></script> 
+</body>
+</html>
