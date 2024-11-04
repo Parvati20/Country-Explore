@@ -10,7 +10,6 @@ const favoritesContainer = document.getElementById('favoritesContainer');
 let countries = [];
 let currentIndex = 0;
 
-
 async function fetchCountries() {
    const response = await fetch('https://restcountries.com/v3.1/all');
    countries = await response.json();
@@ -62,14 +61,12 @@ function updateFavoritesCount() {
    favoriteIcon.innerHTML = `<i class="fa-solid fa-heart">${favoritesCount > 0 ? favoritesCount : ''}</i>`;
 }
 
-
 function viewDetails(countryName) {
    const country = countries.find(c => c.name.common === countryName);
    if (country) {
        alert(`Details for ${country.name.common}:\nPopulation: ${country.population}\nRegion: ${country.region}\nSubregion: ${country.subregion}\nCapital: ${country.capital}\nFlag URL:${country.flags.png}`);
    }
 }
-
 
 function toggleMode() {
    document.body.classList.toggle('dark-mode');
@@ -79,10 +76,8 @@ function toggleMode() {
    modeToggleMoon.style.display = document.body.classList.contains('dark-mode') ? 'inline-block' : 'none';
 }
 
-
 modeToggleSun.addEventListener('click', toggleMode);
 modeToggleMoon.addEventListener('click', toggleMode);
-
 
 document.getElementById('searchButton').addEventListener('click', () => {
    const searchText = searchBar.value.toLowerCase();
@@ -112,7 +107,6 @@ document.getElementById('searchButton').addEventListener('click', () => {
    showMoreButton.style.display = filteredCountries.length <= 12 ? 'none' : 'block';
 });
 
-
 showMoreButton.addEventListener('click', displayCountries);
 
 favoriteIcon.addEventListener('click', () => {
@@ -140,12 +134,16 @@ favoriteIcon.addEventListener('click', () => {
    }
 });
 
-
 function removeFavorite(countryName) {
    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
    favorites = favorites.filter(fav => fav.name !== countryName);
    localStorage.setItem('favorites', JSON.stringify(favorites));
+   
+   
    updateFavoritesCount();
+   
+   favoriteIcon.click(); 
 }
+
 
 fetchCountries();
